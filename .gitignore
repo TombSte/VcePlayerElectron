@@ -147,3 +147,9 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Electron app
+out/
+dist/
+samples/
+*.vce

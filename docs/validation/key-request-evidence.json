@@ -1,0 +1,956 @@
+{
+  "kind": "retained static analysis excerpt, not runtime execution",
+  "targetSha256": "3d71413240fc39f0c264ffb945a9140b4b8f274a4b22ecf924967cdcc359101c",
+  "records": [
+    {
+      "sourceFile": "request-key.json",
+      "evidenceId": "ev_99cde60a932c03da29b6846d70b8d947931b69628579b758cc291a53a1d4d709",
+      "procedure": {
+        "address": "0x9683a0",
+        "name": "sub_9683a0",
+        "classification": null,
+        "body": {
+          "available": false,
+          "reason": "Hopper's public Python API does not expose complete function body ranges"
+        },
+        "signature": "int sub_9683a0()",
+        "locals": [
+          {
+            "description": "var_4 (stack displacement -4)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_4",
+            "stack_displacement": "-4"
+          },
+          {
+            "description": "var_8 (stack displacement -8)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_8",
+            "stack_displacement": "-8"
+          }
+        ]
+      },
+      "pseudocode": "    sub_40a3cc();\n    sub_40a3cc();\n    decomp_var_18 = *0x0;\n    *0x0 = &decomp_var_18;\n    sub_964424();\n    *0x0 = decomp_var_18;\n    eax = sub_40a348();\n    return eax;\n",
+      "callees": [
+        {
+          "address": "0x40a348",
+          "name": "sub_40a348",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40a3cc",
+          "name": "sub_40a3cc",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x964424",
+          "name": "sub_964424",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        }
+      ],
+      "referencedStrings": [],
+      "limitations": [
+        "Native CallReference classifications are observed where available; detailed reference flags remain unknown.",
+        "Hopper's public Python API does not expose equivalent external or thunk classification in this dossier.",
+        "Native calls without resolved target addresses are not represented as edges; enumeration beyond reported CallReference objects is unknown.",
+        "Pseudocode and assembly are provider-specific representations, not original source."
+      ]
+    },
+    {
+      "sourceFile": "decrypt-dialog.json",
+      "evidenceId": "ev_070e970a965f539a0f9a88b4a685f722ac5b094cf1ed5108ce76eca165b3d7b0",
+      "procedure": {
+        "address": "0x964424",
+        "name": "sub_964424",
+        "classification": null,
+        "body": {
+          "available": false,
+          "reason": "Hopper's public Python API does not expose complete function body ranges"
+        },
+        "signature": "int sub_964424()",
+        "locals": [
+          {
+            "description": "var_4 (stack displacement -4)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_4",
+            "stack_displacement": "-4"
+          },
+          {
+            "description": "var_8 (stack displacement -8)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_8",
+            "stack_displacement": "-8"
+          },
+          {
+            "description": "var_C (stack displacement -12)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_C",
+            "stack_displacement": "-12"
+          },
+          {
+            "description": "var_10 (stack displacement -16)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_10",
+            "stack_displacement": "-16"
+          },
+          {
+            "description": "var_14 (stack displacement -20)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_14",
+            "stack_displacement": "-20"
+          },
+          {
+            "description": "var_15 (stack displacement -21)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_15",
+            "stack_displacement": "-21"
+          },
+          {
+            "description": "var_1C (stack displacement -28)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_1C",
+            "stack_displacement": "-28"
+          },
+          {
+            "description": "var_24 (stack displacement -36)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_24",
+            "stack_displacement": "-36"
+          },
+          {
+            "description": "var_28 (stack displacement -40)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_28",
+            "stack_displacement": "-40"
+          },
+          {
+            "description": "var_29 (stack displacement -41)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_29",
+            "stack_displacement": "-41"
+          },
+          {
+            "description": "var_30 (stack displacement -48)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_30",
+            "stack_displacement": "-48"
+          },
+          {
+            "description": "var_34 (stack displacement -52)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_34",
+            "stack_displacement": "-52"
+          },
+          {
+            "description": "var_38 (stack displacement -56)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_38",
+            "stack_displacement": "-56"
+          },
+          {
+            "description": "var_3C (stack displacement -60)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_3C",
+            "stack_displacement": "-60"
+          },
+          {
+            "description": "var_40 (stack displacement -64)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_40",
+            "stack_displacement": "-64"
+          },
+          {
+            "description": "var_44 (stack displacement -68)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_44",
+            "stack_displacement": "-68"
+          },
+          {
+            "description": "var_48 (stack displacement -72)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_48",
+            "stack_displacement": "-72"
+          },
+          {
+            "description": "var_4C (stack displacement -76)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_4C",
+            "stack_displacement": "-76"
+          },
+          {
+            "description": "var_50 (stack displacement -80)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_50",
+            "stack_displacement": "-80"
+          },
+          {
+            "description": "var_54 (stack displacement -84)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_54",
+            "stack_displacement": "-84"
+          },
+          {
+            "description": "var_58 (stack displacement -88)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_58",
+            "stack_displacement": "-88"
+          },
+          {
+            "description": "var_5C (stack displacement -92)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_5C",
+            "stack_displacement": "-92"
+          },
+          {
+            "description": "var_60 (stack displacement -96)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_60",
+            "stack_displacement": "-96"
+          },
+          {
+            "description": "var_64 (stack displacement -100)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_64",
+            "stack_displacement": "-100"
+          },
+          {
+            "description": "var_68 (stack displacement -104)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_68",
+            "stack_displacement": "-104"
+          },
+          {
+            "description": "var_6C (stack displacement -108)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_6C",
+            "stack_displacement": "-108"
+          },
+          {
+            "description": "var_70 (stack displacement -112)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_70",
+            "stack_displacement": "-112"
+          },
+          {
+            "description": "var_74 (stack displacement -116)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_74",
+            "stack_displacement": "-116"
+          },
+          {
+            "description": "var_78 (stack displacement -120)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_78",
+            "stack_displacement": "-120"
+          },
+          {
+            "description": "var_7C (stack displacement -124)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_7C",
+            "stack_displacement": "-124"
+          },
+          {
+            "description": "var_80 (stack displacement -128)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_80",
+            "stack_displacement": "-128"
+          },
+          {
+            "description": "var_84 (stack displacement -132)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_84",
+            "stack_displacement": "-132"
+          },
+          {
+            "description": "var_88 (stack displacement -136)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_88",
+            "stack_displacement": "-136"
+          },
+          {
+            "description": "var_8C (stack displacement -140)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_8C",
+            "stack_displacement": "-140"
+          },
+          {
+            "description": "var_90 (stack displacement -144)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_90",
+            "stack_displacement": "-144"
+          },
+          {
+            "description": "var_94 (stack displacement -148)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_94",
+            "stack_displacement": "-148"
+          },
+          {
+            "description": "var_98 (stack displacement -152)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_98",
+            "stack_displacement": "-152"
+          },
+          {
+            "description": "var_9C (stack displacement -156)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_9C",
+            "stack_displacement": "-156"
+          },
+          {
+            "description": "var_A0 (stack displacement -160)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_A0",
+            "stack_displacement": "-160"
+          },
+          {
+            "description": "var_A4 (stack displacement -164)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_A4",
+            "stack_displacement": "-164"
+          },
+          {
+            "description": "var_A8 (stack displacement -168)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_A8",
+            "stack_displacement": "-168"
+          },
+          {
+            "description": "var_AC (stack displacement -172)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_AC",
+            "stack_displacement": "-172"
+          }
+        ]
+      },
+      "pseudocode": "    var_AC = 0x0;\n    var_A8 = 0x0;\n    var_9C = 0x0;\n    var_84 = 0x0;\n    var_98 = 0x0;\n    var_80 = 0x0;\n    var_7C = 0x0;\n    var_10 = 0x0;\n    var_8 = ecx;\n    var_4 = edx;\n    var_14 = eax;\n    sub_40a3cc();\n    sub_40a3cc();\n    decomp_var_bc = *0x0;\n    *0x0 = &decomp_var_bc;\n    var_1C = 0xffffffff;\n    sub_40a2e8();\n    var_24 = 0x0;\n    var_34 = sub_9629c4();\n    decomp_var_c8 = *0x0;\n    *0x0 = &decomp_var_c8;\n    esp = esp + 0xffffff54 - 0x28;\n    decomp_var_d4 = &var_10;\n    eax = sub_962e3c(decomp_var_d4, &var_28, &var_C);\n    if (var_10 != 0x0) {\n            sub_42b028();\n            asm { fstp       qword [ebp+var_40] };\n            asm { wait };\n            decomp_var_d8 = var_3C;\n            decomp_var_dc = var_40;\n            bool_1 = -sub_4f16d0(decomp_var_dc, decomp_var_d8) >= 0x0;\n            esp = esp - 0x20;\n            sub_4ee20c(sub_40c428(0x3e8, 0x0), edx, decomp_var_e4, decomp_var_e0);\n            asm { fstp       qword [ebp+var_68] };\n            asm { wait };\n            esp = esp - 0x10;\n            eax = sub_4ee128(var_68, var_64, 0x0, 0x40d8f840);\n            var_78 = eax;\n            var_74 = edx;\n            asm { fld        qword [ebp+var_70] };\n            asm { fcomp      dword [sub_9649e2+2] };\n            asm { wait };\n            asm { fnstsw     ax };\n            asm { sahf };\n            if (!bool_1) {\n                    eax = -var_78;\n                    var_78 = eax;\n                    var_74 = -(var_74 + 0x0 + CARRY(EFLAGS(cf)));\n            }\n            eax = var_78 - 0x93a80;\n            bool_7 = var_74 - 0x0 + CARRY(EFLAGS(cf)) < var_24;\n            if (var_74 - 0x0 + CARRY(EFLAGS(cf)) == var_24) {\n                    eax = eax < var_28 ? 0x1 : 0x0;\n            }\n            else {\n                    eax = bool_7 ? 0x1 : 0x0;\n            }\n    }\n    else {\n            eax = 0x0;\n    }\n    if (eax != 0x0) {\n            sub_4bce78(0x1, sub_4329b4());\n            decomp_var_f0 = *0x0;\n            *0x0 = &decomp_var_f0;\n            sub_4bca34();\n            sub_8ed86c();\n            sub_4b7ddc(0x0, 0x0);\n            *0x0 = decomp_var_f0;\n            eax = sub_408628();\n    }\n    else {\n            var_29 = 0x1;\n            if (var_29 == 0x0) {\n                    *0x0 = decomp_var_dc;\n                    eax = sub_408628();\n            }\n            else {\n                    ebx = sub_4c8518();\n                    ebx[0x17] = **dword_992a0c;\n                    sub_40a6c8();\n                    sub_40a6c8();\n                    var_38 = sub_65b308();\n                    esp = esp - 0xc;\n                    decomp_var_e8 = *0x0;\n                    *0x0 = &decomp_var_e8;\n                    var_38[0xee] = ebx;\n                    (*(*var_38 + 0x128))(decomp_var_e8, 0x964959, ebp);\n                    if (var_38[0xea] < 0x0) {\n                            if (var_1C != 0xffffffff) {\n                                    if (var_C == 0x0) {\n                                            sub_963240();\n                                            sub_4bce78(0x1, sub_4329b4());\n                                            decomp_var_f4 = *0x0;\n                                            *0x0 = &decomp_var_f4;\n                                            sub_4bca34();\n                                            sub_8ed86c();\n                                            sub_4b7ddc(0x0, 0x0);\n                                            *0x0 = decomp_var_f4;\n                                            eax = sub_408628();\n                                    }\n                                    else {\n                                            if (var_1C != 0xffffffff) {\n                                                    sub_963b50();\n                                            }\n                                            if (sub_40b99c() > 0x0) {\n                                                    sub_644b68();\n                                                    sub_40a6c8();\n                                            }\n                                            if (var_38[0xea] != 0xfffffffc) {\n                                                    esp = esp - 0x4;\n                                                    sub_644b68();\n                                                    sub_428438(decomp_var_e0);\n                                                    sub_7b7fe0() == 0x4 ? 0x1 : 0x0;\n                                            }\n                                            else {\n                                                    esp = esp - 0x4;\n                                                    sub_428438(&var_9C);\n                                                    sub_7b7fe0() == 0x4 ? 0x1 : 0x0;\n                                            }\n                                            *0x0 = decomp_var_dc;\n                                            eax = sub_408628();\n                                    }\n                            }\n                            else {\n                                    if (var_1C != 0xffffffff) {\n                                            sub_963b50();\n                                    }\n                                    if (sub_40b99c() > 0x0) {\n                                            sub_644b68();\n                                            sub_40a6c8();\n                                    }\n                                    if (var_38[0xea] != 0xfffffffc) {\n                                            esp = esp - 0x4;\n                                            sub_644b68();\n                                            sub_428438(decomp_var_e0);\n                                            sub_7b7fe0() == 0x4 ? 0x1 : 0x0;\n                                    }\n                                    else {\n                                            esp = esp - 0x4;\n                                            sub_428438(&var_9C);\n                                            sub_7b7fe0() == 0x4 ? 0x1 : 0x0;\n                                    }\n                                    *0x0 = decomp_var_dc;\n                                    eax = sub_408628();\n                            }\n                    }\n                    else {\n                            var_30 = sub_4bce78(0x1, sub_4329b4());\n                            decomp_var_f0 = *0x0;\n                            *0x0 = &decomp_var_f0;\n                            sub_4bca34();\n                            sub_8ed86c();\n                            esp = esp - 0x1c;\n                            decomp_var_f8 = 0x0;\n                            sub_4b7ddc(0x0, 0x0);\n                            if (var_1C != 0xffffffff) {\n                                    decomp_var_f4 = var_4;\n                                    decomp_var_f8 = var_38[0xec];\n                                    esp = esp - 0xc;\n                                    decomp_var_fc = &var_A8;\n                                    sub_963464(decomp_var_fc, decomp_var_f8, decomp_var_f4);\n                            }\n                            else {\n                                    esp = esp - 0x4;\n                                    decomp_var_f4 = &var_AC;\n                                    sub_962bb8();\n                            }\n                            *0x0 = decomp_var_fc;\n                            eax = sub_408628();\n                    }\n            }\n    }\n    return eax;\n",
+      "callees": [
+        {
+          "address": "0x408628",
+          "name": "sub_408628",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40a2e8",
+          "name": "sub_40a2e8",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40a3cc",
+          "name": "sub_40a3cc",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40a6c8",
+          "name": "sub_40a6c8",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40b99c",
+          "name": "sub_40b99c",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40c428",
+          "name": "sub_40c428",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x428438",
+          "name": "sub_428438",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x42b028",
+          "name": "sub_42b028",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4329b4",
+          "name": "sub_4329b4",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4b7ddc",
+          "name": "sub_4b7ddc",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4bca34",
+          "name": "sub_4bca34",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4bce78",
+          "name": "sub_4bce78",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4c8518",
+          "name": "sub_4c8518",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4ee128",
+          "name": "sub_4ee128",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4ee20c",
+          "name": "sub_4ee20c",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4f16d0",
+          "name": "sub_4f16d0",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x644b68",
+          "name": "sub_644b68",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x65b308",
+          "name": "sub_65b308",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x7b7fe0",
+          "name": "sub_7b7fe0",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x8ed86c",
+          "name": "sub_8ed86c",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x9629c4",
+          "name": "sub_9629c4",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x962bb8",
+          "name": "sub_962bb8",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x962e3c",
+          "name": "sub_962e3c",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x963240",
+          "name": "sub_963240",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x963464",
+          "name": "sub_963464",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x963b50",
+          "name": "sub_963b50",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        }
+      ],
+      "referencedStrings": [
+        {
+          "address": "0x964a04",
+          "value": "11001",
+          "provider_value": "11001",
+          "string": {
+            "encoding": "utf-16-le",
+            "encoding_status": "inferred",
+            "termination": "present_or_not_required",
+            "byte_length": 12
+          },
+          "source_address": "0x964782"
+        }
+      ],
+      "limitations": [
+        "Native CallReference classifications are observed where available; detailed reference flags remain unknown.",
+        "Hopper's public Python API does not expose equivalent external or thunk classification in this dossier.",
+        "Native calls without resolved target addresses are not represented as edges; enumeration beyond reported CallReference objects is unknown.",
+        "Pseudocode and assembly are provider-specific representations, not original source."
+      ]
+    },
+    {
+      "sourceFile": "thread-candidate.json",
+      "evidenceId": "ev_7b8ef702873052e210bccb1c7f12f51535633a9201a81f756a3c5bb6b5584db8",
+      "procedure": {
+        "address": "0x88eda0",
+        "name": "sub_88eda0",
+        "classification": null,
+        "body": {
+          "available": false,
+          "reason": "Hopper's public Python API does not expose complete function body ranges"
+        },
+        "signature": "int sub_88eda0()",
+        "locals": [
+          {
+            "description": "var_4 (stack displacement -4)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_4",
+            "stack_displacement": "-4"
+          },
+          {
+            "description": "var_8 (stack displacement -8)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_8",
+            "stack_displacement": "-8"
+          },
+          {
+            "description": "var_C (stack displacement -12)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_C",
+            "stack_displacement": "-12"
+          },
+          {
+            "description": "var_10 (stack displacement -16)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_10",
+            "stack_displacement": "-16"
+          },
+          {
+            "description": "var_14 (stack displacement -20)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_14",
+            "stack_displacement": "-20"
+          },
+          {
+            "description": "var_18 (stack displacement -24)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_18",
+            "stack_displacement": "-24"
+          },
+          {
+            "description": "var_1C (stack displacement -28)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_1C",
+            "stack_displacement": "-28"
+          },
+          {
+            "description": "var_20 (stack displacement -32)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_20",
+            "stack_displacement": "-32"
+          },
+          {
+            "description": "var_24 (stack displacement -36)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_24",
+            "stack_displacement": "-36"
+          },
+          {
+            "description": "var_28 (stack displacement -40)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_28",
+            "stack_displacement": "-40"
+          },
+          {
+            "description": "var_2C (stack displacement -44)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_2C",
+            "stack_displacement": "-44"
+          },
+          {
+            "description": "var_30 (stack displacement -48)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_30",
+            "stack_displacement": "-48"
+          },
+          {
+            "description": "var_34 (stack displacement -52)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_34",
+            "stack_displacement": "-52"
+          },
+          {
+            "description": "var_38 (stack displacement -56)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_38",
+            "stack_displacement": "-56"
+          },
+          {
+            "description": "var_3C (stack displacement -60)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_3C",
+            "stack_displacement": "-60"
+          },
+          {
+            "description": "var_40 (stack displacement -64)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_40",
+            "stack_displacement": "-64"
+          },
+          {
+            "description": "var_44 (stack displacement -68)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_44",
+            "stack_displacement": "-68"
+          },
+          {
+            "description": "var_48 (stack displacement -72)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_48",
+            "stack_displacement": "-72"
+          },
+          {
+            "description": "var_4C (stack displacement -76)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_4C",
+            "stack_displacement": "-76"
+          },
+          {
+            "description": "var_50 (stack displacement -80)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_50",
+            "stack_displacement": "-80"
+          },
+          {
+            "description": "var_54 (stack displacement -84)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_54",
+            "stack_displacement": "-84"
+          },
+          {
+            "description": "var_58 (stack displacement -88)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_58",
+            "stack_displacement": "-88"
+          },
+          {
+            "description": "var_5C (stack displacement -92)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_5C",
+            "stack_displacement": "-92"
+          },
+          {
+            "description": "var_60 (stack displacement -96)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_60",
+            "stack_displacement": "-96"
+          },
+          {
+            "description": "var_64 (stack displacement -100)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_64",
+            "stack_displacement": "-100"
+          },
+          {
+            "description": "var_68 (stack displacement -104)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_68",
+            "stack_displacement": "-104"
+          },
+          {
+            "description": "var_6C (stack displacement -108)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_6C",
+            "stack_displacement": "-108"
+          },
+          {
+            "description": "var_70 (stack displacement -112)",
+            "provenance": "hopper-public-python-api",
+            "name": "var_70",
+            "stack_displacement": "-112"
+          }
+        ]
+      },
+      "pseudocode": "    ecx = 0xe;\n    do {\n            var_4 = 0x0;\n            esp = esp - 0x8;\n            ecx = ecx - 0x1;\n    } while (ecx != 0x0);\n    var_8 = eax;\n    var_20 = *0x0;\n    *0x0 = &var_20;\n    sub_80ab68();\n    sub_8857b0();\n    var_2C = *0x0;\n    *0x0 = &var_2C;\n    sub_4b7d18();\n    var_38 = *0x0;\n    *0x0 = &var_38;\n    sub_425f50();\n    sub_428438(var_3C);\n    (*(*var_14 + 0x3c))();\n    sub_425f50();\n    sub_428438(var_3C);\n    (*(*var_14 + 0x3c))();\n    sub_428438(&var_38);\n    (*(*var_14 + 0x3c))();\n    sub_428438(&var_3C);\n    (*(*var_14 + 0x3c))();\n    eax = get_version(&var_40);\n    sub_428438(var_3C);\n    (*(*var_14 + 0x3c))();\n    sub_428438(&var_44);\n    (*(*var_14 + 0x3c))();\n    var_44 = *0x0;\n    *0x0 = &var_44;\n    sub_885804();\n    sub_885f84();\n    var_48 = 0x0;\n    var_4C = &var_48;\n    sub_87a898(var_4C, var_48);\n    sub_40af78();\n    var_10 = sub_638d18();\n    var_18 = sub_4b7d18();\n    esp = esp - 0x60;\n    var_50 = ebp;\n    var_54 = sub_88f088;\n    esp = esp - 0x8;\n    var_58 = *0x0;\n    *0x0 = &var_58;\n    sub_638ec4();\n    sub_40b034();\n    sub_63cb9c();\n    (*(*var_18 + 0xc))();\n    var_8[0x13] = sub_426cf8();\n    if (var_8[0x13] == 0xfffffffc && (*(*var_18 + 0x14))() > 0x1) {\n            esp = esp - 0x4;\n            eax = (*(*var_18 + 0xc))(&var_54);\n            (*(*var_18 + 0xc))();\n            sub_428438(0x11);\n            sub_40a6c8();\n    }\n    else {\n            (*(*var_18 + 0xc))();\n            sub_40a6c8();\n    }\n    *0x0 = var_54;\n    sub_408628();\n    eax = sub_408628();\n    return eax;\n",
+      "callees": [
+        {
+          "address": "0x408628",
+          "name": "sub_408628",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40a6c8",
+          "name": "sub_40a6c8",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40af78",
+          "name": "sub_40af78",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x40b034",
+          "name": "sub_40b034",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x425f50",
+          "name": "sub_425f50",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x426cf8",
+          "name": "sub_426cf8",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x428438",
+          "name": "sub_428438",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x4b7d18",
+          "name": "sub_4b7d18",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x6349bc",
+          "name": "j_get_version",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x638d18",
+          "name": "sub_638d18",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x638ec4",
+          "name": "sub_638ec4",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x63cb9c",
+          "name": "sub_63cb9c",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x80ab68",
+          "name": "sub_80ab68",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x87a898",
+          "name": "sub_87a898",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x8857b0",
+          "name": "sub_8857b0",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x885804",
+          "name": "sub_885804",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        },
+        {
+          "address": "0x885f84",
+          "name": "sub_885f84",
+          "classification": null,
+          "body": {
+            "available": false,
+            "reason": "Hopper's public Python API does not expose complete function body ranges"
+          }
+        }
+      ],
+      "referencedStrings": [
+        {
+          "address": "0x88f1d0",
+          "value": "1.1.6",
+          "provider_value": "1.1.6",
+          "string": {
+            "encoding": "utf-16-le",
+            "encoding_status": "inferred",
+            "termination": "present_or_not_required",
+            "byte_length": 12
+          },
+          "source_address": "0x88eeaf"
+        }
+      ],
+      "limitations": [
+        "Native CallReference classifications are observed where available; detailed reference flags remain unknown.",
+        "Hopper's public Python API does not expose equivalent external or thunk classification in this dossier.",
+        "Native calls without resolved target addresses are not represented as edges; enumeration beyond reported CallReference objects is unknown.",
+        "Pseudocode and assembly are provider-specific representations, not original source."
+      ]
+    }
+  ]
+}

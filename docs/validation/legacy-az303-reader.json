@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-14T06:36:16.163Z",
+  "filePath": "/tmp/AZ-303.vce",
+  "sha256": "ecce689eccd8af3cbff339d2e198fe15f01ffd76dbd296e623355351a28ea128",
+  "bytes": 14974395,
+  "version": 31,
+  "number": "AZ-303",
+  "exams": [
+    {
+      "name": "Exam A",
+      "questions": 246
+    }
+  ],
+  "questions": 246,
+  "typeCounts": {
+    "0": 136,
+    "1": 29,
+    "2": 14,
+    "9": 67
+  },
+  "imageRecords": 81,
+  "untrusted": 0,
+  "decryptionWarnings": false,
+  "manualPool": false,
+  "inputUnmodified": true,
+  "limitations": [
+    "Answers checked for structural validity, not independently verified against the original Player.",
+    "Embedded images checked for signatures/truncation, not every pixel decoded.",
+    "Opaque trailer not authenticated."
+  ],
+  "ok": true
+}

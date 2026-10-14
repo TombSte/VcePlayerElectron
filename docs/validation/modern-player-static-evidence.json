@@ -1,0 +1,220 @@
+{
+  "timestamp": "2026-10-14",
+  "method": "Official HTTPS package acquisition and offline Inno reconstruction/static PE inspection; no original installer/app execution.",
+  "acquisitions": [
+    {
+      "timestamp": "2026-10-14T06:56:34.538Z",
+      "sourcePage": "https://www.avanset.com/downloads.html",
+      "url": "https://update.avanset.com/download/2.9.3/vce_exam_simulator_demo_setup.zip",
+      "status": 200,
+      "bytes": 18271349,
+      "sha256": "39071c1160953abc5510b131fd3f003996181cae6e2018d21436d5900ad922a5",
+      "file": "/tmp/kp/vendor-2.9.3-demo.zip",
+      "execution": "No installer or original Player process executed; archive inspection only."
+    },
+    {
+      "timestamp": "2026-10-14T07:19:02.821Z",
+      "sourcePage": "https://www.avanset.com/downloads.html",
+      "url": "https://update.avanset.com/download/2.9.3/vce_exam_simulator_setup.zip",
+      "urlSelection": "Public companion installer at the same official HTTPS version path; no login or credentials.",
+      "status": 200,
+      "bytes": 19191300,
+      "sha256": "abbac1d23d3493168835ff40a2c9532bacc888bd63c4e10a9847714dfa353481",
+      "file": "/tmp/kp/vendor-2.9.3-full/setup.zip",
+      "execution": "No installer or original Player process executed; archive inspection only."
+    }
+  ],
+  "extraction": {
+    "layoutSource": "dscharrer/innoextract commit 6e9e34ed0876014fdb46e684103ef8c3605e382e",
+    "loaderAndMetadataCrc32Validated": true,
+    "instructionFilterReversed": true,
+    "vendor-2.9.3": {
+      "files": 19,
+      "allInstallerMetadataSha256Matched": true
+    },
+    "vendor-2.9.3-full": {
+      "files": 21,
+      "allInstallerMetadataSha256Matched": true
+    }
+  },
+  "targets": [
+    {
+      "package": "vendor-2.9.3",
+      "index": 1,
+      "path": "/tmp/kp/vendor-2.9.3/files/entry-01.exe",
+      "bytes": 13933176,
+      "sha256": "1e39a3e8a90242ee978c0e2779ac7ff0aa70c3399fbbc70e595de6a147826f6a",
+      "installerMetadataSha256Matched": true,
+      "exports": []
+    },
+    {
+      "package": "vendor-2.9.3",
+      "index": 18,
+      "path": "/tmp/kp/vendor-2.9.3/files/entry-18.exe",
+      "bytes": 11750008,
+      "sha256": "aff5249e96ead3bb1f8985e17018638d67ca62e4526d795597d289b5458ef3f6",
+      "installerMetadataSha256Matched": true,
+      "exports": []
+    },
+    {
+      "package": "vendor-2.9.3-full",
+      "index": 1,
+      "path": "/tmp/kp/vendor-2.9.3-full/files/entry-01.exe",
+      "bytes": 14006904,
+      "sha256": "4a112c2b9cfb2bfc5de39f62ce2739227e878a5f8ebae3289ab9e6d06d96e155",
+      "installerMetadataSha256Matched": true,
+      "exports": []
+    },
+    {
+      "package": "vendor-2.9.3-full",
+      "index": 5,
+      "path": "/tmp/kp/vendor-2.9.3-full/files/entry-05.dll",
+      "bytes": 889464,
+      "sha256": "27fa008752cdd1feda065377165893ed89cead8356d09d49021b1468dc169f18",
+      "installerMetadataSha256Matched": true,
+      "exports": [
+        {
+          "name": "FVCE30",
+          "va": "0x10005600"
+        },
+        {
+          "name": "FVCE31",
+          "va": "0x10005810"
+        },
+        {
+          "name": "FVCE32",
+          "va": "0x10005960"
+        },
+        {
+          "name": "FVCE33",
+          "va": "0x10005ab0"
+        },
+        {
+          "name": "GetSize",
+          "va": "0x100055f0"
+        },
+        {
+          "name": "chk_activation",
+          "va": "0x10001e10"
+        },
+        {
+          "name": "get_cert_info",
+          "va": "0x10002970"
+        },
+        {
+          "name": "get_days",
+          "va": "0x100029c0"
+        },
+        {
+          "name": "get_mode",
+          "va": "0x10002960"
+        },
+        {
+          "name": "get_version",
+          "va": "0x10001030"
+        },
+        {
+          "name": "init_create_key",
+          "va": "0x10001040"
+        },
+        {
+          "name": "init_read_key",
+          "va": "0x100013c0"
+        },
+        {
+          "name": "set_activation",
+          "va": "0x10002210"
+        }
+      ]
+    },
+    {
+      "package": "vendor-2.9.3-full",
+      "index": 20,
+      "path": "/tmp/kp/vendor-2.9.3-full/files/entry-20.exe",
+      "bytes": 11861624,
+      "sha256": "6d15db70639f084a102222e6e273f4eeb8dbccfe4b1079d3f45d372e4e66e356",
+      "installerMetadataSha256Matched": true,
+      "exports": []
+    }
+  ],
+  "observations": [
+    {
+      "target": "demo Player",
+      "address": "0x949060",
+      "finding": "Magic/version gate computes major*10+minor, rejects >63 at 0x9490de."
+    },
+    {
+      "target": "full Player",
+      "address": "0x9b87f0",
+      "finding": "Magic/version gate computes major*10+minor, rejects >63 at 0x9b886e."
+    },
+    {
+      "target": "demo Designer",
+      "address": "0x8dde0c",
+      "finding": "Caller 0xb1f6e7 serializes a stream through X509 public-key RSA; encrypts chunks of up to 245 bytes, RSA_public_encrypt padding argument 1 at 0x8ddef6 and 0x8ddf29."
+    },
+    {
+      "target": "full Player",
+      "address": "0x991a94",
+      "finding": "Request routine constructs email/passwd/key/version fields; calls HTTP helper 0x91cdac at 0x991d02 with literal HTTPS license URL 0x992098; response fields assigned at self+0x58 and self+0x60."
+    }
+  ],
+  "modernPoolMechanism": {
+    "designer": {
+      "poolGenerator": "0x8e6d18",
+      "randomByteProvider": "OpenSSL RAND_bytes, import thunk 0x8ae4e4",
+      "declaredPoolLengthRange": [1024, 2048],
+      "randomStorageBytes": 2048,
+      "plaintextFraming": "LE32(declared length) || 2048 random bytes",
+      "rsaWriter": "0x8e6e94",
+      "rsaWriterCaller": "0xb2a6e1",
+      "publicKeyResource": "RCDATA EXAM_PUBLIC_KEY",
+      "rsaPadding": "RSA_PKCS1_PADDING (argument 1)",
+      "rsaPayloadLimit": 245,
+      "rsaModulusBytes": 256,
+      "ciphertextBytes": 2304
+    },
+    "player": {
+      "headerPoolCallback": "0x9b90e2, procedure 0x9b8fb8",
+      "onDecryptExamKeyRequest": "0xaeb6c8",
+      "cacheRequestHandler": "0xae75a0",
+      "cacheLookup": "0xae5fa4",
+      "protectedStreamReference": "0xb1cbd0 -> 0xb43d50",
+      "headerStreamReference": "0xb1db78 -> 0xb43d4c",
+      "format60RecordReader": "0x8553b8",
+      "format61PlusRecordReader": "0x855480",
+      "streamSelection": "selector >= 0x80 selects protected stream, otherwise header stream"
+    },
+    "necessaryEnvelopeBoundsReport": "modern-pool-envelope-bounds.json",
+    "matchingReferencePairs": 13,
+    "alignedRsaBlocksBelowModulus": 117,
+    "knownValidOldDllPrivatePemModulusMatches": 0,
+    "exactProductionModulusByteScan": {
+      "roots": ["/tmp/kp/vendor-2.9.3/files", "/tmp/kp/vendor-2.9.3-full/files", "/tmp/vce_target/VCEPlayer"],
+      "files": 47,
+      "bytes": 91740656,
+      "hits": 0
+    },
+    "automaticRecoveryImplemented": false
+  },
+  "requestFields": {
+    "0x991f94": "email=%s",
+    "0x991fb4": "passwd=%s",
+    "0x991fd4": "key=%s",
+    "0x991ff0": "2.9.3",
+    "0x992008": "ver_app=%s",
+    "0x99202c": "ver_lib=%d",
+    "0x992050": "ver_file=%s",
+    "0x992074": "ver_key=%d",
+    "0x992098": "https://www.avanset.com/license/v2/index.php"
+  },
+  "requestExecuted": false,
+  "credentialsUsed": false,
+  "limitations": [
+    "Version-gate static admission does not verify full reading or automatic key recovery.",
+    "Demo Designer public RSA serialization is not yet independently matched to variable protected pools in the reference corpus.",
+    "Cache/request-to-protected-reader linkage is located; exact response conversion and cache integrity/storage remain incompletely reconstructed.",
+    "No matching production private key or alternative local pool recovery has been established; necessary RSA bounds do not prove plaintext matches.",
+    "No Windows application runtime acceptance evidence."
+  ]
+}

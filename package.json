@@ -1,0 +1,50 @@
+{
+  "name": "vce-player-electron",
+  "version": "0.1.0",
+  "description": "VCE Exam Player — Electron + TypeScript + React recreation of VCE Player (Visual CertExam)",
+  "main": "./out/main/index.js",
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "test": "tsx --test tests/*.test.ts",
+    "test:reader": "tsx scripts/test-reader.ts",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "smoke:dnd": "electron scripts/smoke-dnd.cjs",
+    "smoke:exam": "electron scripts/smoke-exam.cjs",
+    "smoke:parity": "electron scripts/smoke-parity.cjs",
+    "smoke:training": "electron scripts/smoke-training.cjs",
+    "smoke:packaged": "node scripts/smoke-packaged.cjs",
+    "screenshots": "electron-vite build && electron scripts/screenshot.cjs",
+    "make:icon": "electron scripts/make-icon.cjs",
+    "release:version": "node scripts/ci/bump-version.mjs",
+    "release:notes": "node scripts/ci/extract-release-notes.mjs",
+    "dist": "electron-vite build && electron-builder --mac --win",
+    "dist:mac": "electron-vite build && electron-builder --mac",
+    "dist:win": "electron-vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "electron-store": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "commit-and-tag-version": "^13.2.2",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}

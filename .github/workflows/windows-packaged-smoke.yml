@@ -1,0 +1,53 @@
+name: Windows packaged smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-nsis:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run dist:win
+      - name: Obtain and verify readable real specimen
+        shell: pwsh
+        run: |
+          $url = 'https://raw.githubusercontent.com/sneklyudov/Converter/02dca951dde12bc7feaddae0dff96b61f5101bca/ExamUniverse.Converter.VCE.Tests/Files/my.exam.v9.vce'
+          $fixture = Join-Path $env:RUNNER_TEMP 'my.exam.v9.vce'
+          Invoke-WebRequest -Uri $url -OutFile $fixture
+          $expected = 'cb24ccc08eff5fb4da35d724b392dacf2ccd0a0c04b268c54a0dccbb1f02ae5e'
+          if ((Get-FileHash $fixture -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) {
+            throw 'Reference specimen SHA256 mismatch'
+          }
+      - name: Install NSIS and exercise installed application
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem dist -Filter '*-win-x64.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'Missing NSIS installer' }
+          $installDir = Join-Path $env:RUNNER_TEMP 'vce-installed'
+          $process = Start-Process -FilePath $installer.FullName -ArgumentList @('/S', "/D=$installDir") -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw "NSIS exit $($process.ExitCode)" }
+          $executable = Join-Path $installDir 'VCE Player.exe'
+          if (-not (Test-Path $executable)) { throw 'Installed executable missing' }
+          npm run smoke:packaged -- $executable (Join-Path $env:RUNNER_TEMP 'my.exam.v9.vce') docs/validation/packaged-windows-x64.json
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged Windows smoke failed' }
+          Get-FileHash $installer.FullName -Algorithm SHA256 | Format-List | Out-File docs/validation/windows-installer-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-nsis-and-validation
+          path: |
+            dist/*-win-x64.exe
+            docs/validation/packaged-windows-x64.json
+            docs/validation/windows-installer-sha256.txt

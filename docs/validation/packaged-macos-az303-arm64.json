@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-10-14T10:35:53.600Z",
+  "platform": "darwin",
+  "arch": "arm64",
+  "executable": "/Users/stefanotomba/Development/Github/VcePlayerElectron/dist/mac-arm64/VCE Player.app/Contents/MacOS/VCE Player",
+  "examPath": "/tmp/AZ-303.vce",
+  "examSha256": "ecce689eccd8af3cbff339d2e198fe15f01ffd76dbd296e623355351a28ea128",
+  "checks": [
+    {
+      "name": "packaged app launches its file:// renderer",
+      "detail": "file:///Users/stefanotomba/Development/Github/VcePlayerElectron/dist/mac-arm64/VCE%20Player.app/Contents/Resources/app.asar/out/renderer/index.html",
+      "ok": true
+    },
+    {
+      "name": "startup command-line .vce opens once",
+      "detail": "Passleader.AZ-303.Premium.VCE.246q",
+      "ok": true
+    },
+    {
+      "name": "opened exam is selected in renderer",
+      "ok": true
+    },
+    {
+      "name": "real reader returns nonempty trusted questions",
+      "detail": {
+        "version": 31,
+        "questions": 246
+      },
+      "ok": true
+    },
+    {
+      "name": "Options dialog works through packaged app",
+      "detail": [
+        "General",
+        "Administrative",
+        "Password"
+      ],
+      "ok": true
+    },
+    {
+      "name": "F5 opens five exam modes",
+      "ok": true
+    },
+    {
+      "name": "real exam starts with expected controls",
+      "ok": true
+    },
+    {
+      "name": "legacy hot-area image renders and accepts an answer",
+      "detail": {
+        "width": 906,
+        "height": 211
+      },
+      "ok": true
+    },
+    {
+      "name": "Alt+M marks real question",
+      "ok": true
+    },
+    {
+      "name": "real session persists through electron-store",
+      "detail": {
+        "sessions": 1
+      },
+      "ok": true
+    },
+    {
+      "name": "storage isolated to temporary profile",
+      "ok": true
+    },
+    {
+      "name": "no renderer console/runtime errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

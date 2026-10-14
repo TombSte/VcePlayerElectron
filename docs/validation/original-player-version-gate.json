@@ -1,0 +1,89 @@
+{
+  "target": "/tmp/vce_target/VCEPlayer/player.exe",
+  "sha256": "3d71413240fc39f0c264ffb945a9140b4b8f274a4b22ecf924967cdcc359101c",
+  "procedure": "0x8ee4fc",
+  "maximumAcceptedByGate": 44,
+  "method": "Unicorn emulation of one native procedure, with declared helper stubs",
+  "versions": [
+    {
+      "version": 31,
+      "computedVersion": 31,
+      "position": 4,
+      "rejected": false,
+      "returned": true,
+      "stubCalls": {
+        "0x635268": 4,
+        "0x40a348": 1
+      }
+    },
+    {
+      "version": 44,
+      "computedVersion": 44,
+      "position": 4,
+      "rejected": false,
+      "returned": true,
+      "stubCalls": {
+        "0x635268": 4,
+        "0x40a348": 1
+      }
+    },
+    {
+      "version": 45,
+      "computedVersion": 45,
+      "position": 4,
+      "rejected": true,
+      "returned": false,
+      "stubCalls": {
+        "0x635268": 4,
+        "0x644b68": 1,
+        "0x42dae8": 1,
+        "0x409968": 1
+      }
+    },
+    {
+      "version": 60,
+      "computedVersion": 60,
+      "position": 4,
+      "rejected": true,
+      "returned": false,
+      "stubCalls": {
+        "0x635268": 4,
+        "0x644b68": 1,
+        "0x42dae8": 1,
+        "0x409968": 1
+      }
+    },
+    {
+      "version": 61,
+      "computedVersion": 61,
+      "position": 4,
+      "rejected": true,
+      "returned": false,
+      "stubCalls": {
+        "0x635268": 4,
+        "0x644b68": 1,
+        "0x42dae8": 1,
+        "0x409968": 1
+      }
+    },
+    {
+      "version": 62,
+      "computedVersion": 62,
+      "position": 4,
+      "rejected": true,
+      "returned": false,
+      "stubCalls": {
+        "0x635268": 4,
+        "0x644b68": 1,
+        "0x42dae8": 1,
+        "0x409968": 1
+      }
+    }
+  ],
+  "limitations": [
+    "Not a native Windows Player launch.",
+    "Header admission is not proof of full reading.",
+    "Does not rule out reused crypto routines in later Player versions."
+  ],
+  "networkExecuted": false
+}

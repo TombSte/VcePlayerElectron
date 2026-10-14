@@ -1,0 +1,193 @@
+{
+  "method": "Offline public-key framing/necessary-bound checks only; no private key, network request, or original application execution",
+  "designer": {
+    "path": "/tmp/kp/vendor-2.9.3-full/files/entry-20.exe",
+    "sha256": "6d15db70639f084a102222e6e273f4eeb8dbccfe4b1079d3f45d372e4e66e356"
+  },
+  "publicKey": {
+    "certificateDerSha256": "7d566fa6d33bca4fe02907ac8124cafeaf3ac82f6c778644278fa97c52110112",
+    "spkiDerSha256": "ab235d6add87ec2f77c92495a13e61ab80178f1e4b62e8d625a3c111fe666bec",
+    "modulusBytes": 256,
+    "exponent": "AQAB"
+  },
+  "observedWriterFraming": {
+    "declaredLengthBytes": 4,
+    "randomStorageBytes": 2048,
+    "plaintextEnvelopeBytes": 2052,
+    "pkcs1PayloadLimit": 245,
+    "ciphertextBlocks": 9,
+    "ciphertextBytes": 2304
+  },
+  "matchingPairs": 13,
+  "excludedPairs": 5,
+  "ciphertextBlocksChecked": 117,
+  "modulusBoundViolations": 0,
+  "specimens": [
+    {
+      "filename": "microsoft.az-900.v2021-02-09.by.abdullah.124q.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "05db1d2b6c28efd5352584ad80b5a3292b62635edd8f0df840edcd2141ad0b85",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1879,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "cisco.300-410.v2020-09-21.by.grace.36q.vce",
+      "version": 60,
+      "matchingPair": true,
+      "specimenSha256": "b2dae6abfb6df57afaf495d8473f25cd975c028bbf6d4eeb6223ea6ac1487a59",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1803,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "microsoft.az-104.v2020-12-31.by.zala.135q.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "c46a08fd7a1142249a99a0d30fc302cdf98d5acccb8c52dc0fe1b9e890d33770",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1442,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "microsoft.98-366.v2020-09-14.by.rahid.68q.vce",
+      "version": 60,
+      "matchingPair": true,
+      "specimenSha256": "e8cd9fd11455c9ade5ce018a808aeb8b29e9fac403af39dc3daa8f341a19daa5",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1672,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "microsoft.az-303.v2021-04-01.by.gracie.79q.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "0d3ae794aabd5d412993d4017bf3ef7609adfd4a26650b2f37a8892027550ac2",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1694,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "microsoft.az-104.v2021-04-04.by.zolot.100q.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "9e62ef43f935739c6a35d4f96352cc43292de3ec19e0b9692ecea1f4920673d3",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1608,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "microsoft.az-104.v2021-05-14.by.sophie.123q.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "22791ff88c4516c7951e07401398fedbffa13ff61b588ca87f69a11986e9706c",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1318,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "microsoft.md-100.v2021-05-14.by.wanglei.110q.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "bbe4d9a2ee5cfba28dc4d006c47954c4aad1f299fdd695f792240a3edf43f3a8",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1974,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "az-900.v2021-08-01.vce",
+      "version": 62,
+      "matchingPair": true,
+      "specimenSha256": "d6c8d9520ab894503b3f2d5137a23ea4ad3049bcdd261acd1171901262793bd5",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1766,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "my.exam.v1.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "a8901e66abeccfeae1a9d5a1d13b7bc72aefbfb47a2f03ac2f2fb544486099d9",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 2038,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "my.exam.v2.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "3041d6cc690ea736d6dab324e87fa166f093704cdadcb933ee3df496c9e756b7",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1526,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "my.exam.v3.vce",
+      "version": 61,
+      "matchingPair": false,
+      "reason": "Reference encrypted pool does not match specimen; excluded"
+    },
+    {
+      "filename": "my.exam.v4.vce",
+      "version": 61,
+      "matchingPair": false,
+      "reason": "Reference encrypted pool does not match specimen; excluded"
+    },
+    {
+      "filename": "my.exam.v5.vce",
+      "version": 61,
+      "matchingPair": false,
+      "reason": "Reference encrypted pool does not match specimen; excluded"
+    },
+    {
+      "filename": "my.exam.v6.vce",
+      "version": 61,
+      "matchingPair": false,
+      "reason": "Reference encrypted pool does not match specimen; excluded"
+    },
+    {
+      "filename": "my.exam.v7.vce",
+      "version": 61,
+      "matchingPair": true,
+      "specimenSha256": "ef501cdfa38b93cc5fedc57bf0ddc4055c80ec992d517ab2380834e3dad5ed55",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1270,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    },
+    {
+      "filename": "my.exam.v8.vce",
+      "version": 61,
+      "matchingPair": false,
+      "reason": "Reference encrypted pool does not match specimen; excluded"
+    },
+    {
+      "filename": "my.exam.v9.vce",
+      "version": 62,
+      "matchingPair": true,
+      "specimenSha256": "cb24ccc08eff5fb4da35d724b392dacf2ccd0a0c04b268c54a0dccbb1f02ae5e",
+      "encryptedPoolBytes": 2304,
+      "knownPoolBytes": 1346,
+      "ciphertextBlocks": 9,
+      "modulusBoundViolations": []
+    }
+  ],
+  "limitations": [
+    "c < n is necessary, not sufficient: this does not establish RSA plaintext matches a reference pool.",
+    "Writer framing is a static native-code observation, not an independently decoded production envelope.",
+    "Only reliable paired modern specimens and one selected public certificate are covered.",
+    "No automatic decrypted-pool recovery is implemented or claimed."
+  ]
+}

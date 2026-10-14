@@ -1,0 +1,48 @@
+
+> vce-player-electron@0.1.0 smoke:training
+> electron scripts/smoke-training.cjs
+
+PASS training checkbox selected
+PASS training starts with correct answer visible
+PASS training choice inputs are enabled
+PASS answer can be hidden
+PASS answer can be shown again
+PASS SingleChoice controls are writable
+PASS SingleChoice answer stored
+PASS SingleChoice feedback shown
+PASS MultipleChoice controls are writable
+PASS MultipleChoice answer stored
+PASS MultipleChoice feedback shown
+PASS DragAndDrop controls are writable
+PASS DragAndDrop answer stored
+PASS DragAndDrop feedback shown
+PASS PointAndShoot controls are writable
+PASS PointAndShoot answer stored
+PASS PointAndShoot feedback shown
+PASS CreateATree controls are writable
+PASS CreateATree answer stored
+PASS CreateATree feedback shown
+PASS BuildListAndReorder controls are writable
+PASS BuildListAndReorder answer stored
+PASS BuildListAndReorder feedback shown
+PASS DropAndConnect controls are writable
+PASS DropAndConnect answer stored
+PASS DropAndConnect feedback shown
+PASS CaseStudy controls are writable
+PASS CaseStudy answer stored
+PASS CaseStudy feedback shown
+PASS FillInTheBlank controls are writable
+PASS FillInTheBlank answer stored
+PASS FillInTheBlank feedback shown
+PASS HotArea controls are writable
+PASS HotArea answer stored
+PASS HotArea feedback shown
+PASS training reset clears response
+PASS correct training feedback shown
+PASS correct response advances to next question
+PASS correct training response saved
+PASS score record includes training responses
+PASS review answer controls remain read-only
+PASS review reset is disabled
+PASS no renderer/preload errors
+TRAINING SMOKE OK (43 checks)

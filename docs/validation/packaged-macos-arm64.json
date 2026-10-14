@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-10-14T10:35:46.966Z",
+  "platform": "darwin",
+  "arch": "arm64",
+  "executable": "/Users/stefanotomba/Development/Github/VcePlayerElectron/dist/mac-arm64/VCE Player.app/Contents/MacOS/VCE Player",
+  "examPath": "/tmp/vce_refs/sneklyudov_Converter/ExamUniverse.Converter.VCE.Tests/Files/my.exam.v9.vce",
+  "examSha256": "cb24ccc08eff5fb4da35d724b392dacf2ccd0a0c04b268c54a0dccbb1f02ae5e",
+  "checks": [
+    {
+      "name": "packaged app launches its file:// renderer",
+      "detail": "file:///Users/stefanotomba/Development/Github/VcePlayerElectron/dist/mac-arm64/VCE%20Player.app/Contents/Resources/app.asar/out/renderer/index.html",
+      "ok": true
+    },
+    {
+      "name": "startup command-line .vce opens once",
+      "detail": "AZ-104 test",
+      "ok": true
+    },
+    {
+      "name": "opened exam is selected in renderer",
+      "ok": true
+    },
+    {
+      "name": "real reader returns nonempty trusted questions",
+      "detail": {
+        "version": 62,
+        "questions": 6
+      },
+      "ok": true
+    },
+    {
+      "name": "Options dialog works through packaged app",
+      "detail": [
+        "General",
+        "Administrative",
+        "Password"
+      ],
+      "ok": true
+    },
+    {
+      "name": "F5 opens five exam modes",
+      "ok": true
+    },
+    {
+      "name": "real exam starts with expected controls",
+      "ok": true
+    },
+    {
+      "name": "Alt+M marks real question",
+      "ok": true
+    },
+    {
+      "name": "real session persists through electron-store",
+      "detail": {
+        "sessions": 1
+      },
+      "ok": true
+    },
+    {
+      "name": "storage isolated to temporary profile",
+      "ok": true
+    },
+    {
+      "name": "no renderer console/runtime errors",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

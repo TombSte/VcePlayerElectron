@@ -1,0 +1,18 @@
+
+> vce-player-electron@0.1.0 smoke:parity
+> electron scripts/smoke-parity.cjs
+
+PASS menu bar exposes File/Exam/Help — File,Exam,Help
+PASS Ctrl+A selects all exams — selected=2
+PASS Options dialog has General/Administrative/Password tabs — General,Administrative,Password
+PASS Exam Mode dialog exposes five modes — modes=5
+PASS section-only mode visibly explains why it is disabled — {"disabled":true,"ariaDisabled":"true","styled":true,"reason":true}
+PASS examination window exposes the original Player controls
+PASS Instructions dialog shows answering help — Select one answer. Click the option butt
+PASS Exhibits dialog shows the exhibit — Exhibit: see the diagram
+PASS Alt+M marks the current item — flagged=1
+PASS review exposes All/Incomplete/Marked — All,Incomplete,Marked
+PASS score history view has History + Saved Sessions — History,Saved Sessions (0)
+PASS no console errors
+
+PARITY SMOKE OK

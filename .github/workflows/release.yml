@@ -1,0 +1,172 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - prod
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Typecheck and unit tests
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  version:
+    name: Create version and tag
+    needs: test
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    outputs:
+      version: ${{ steps.bump.outputs.version }}
+      tag: ${{ steps.bump.outputs.tag }}
+      prerelease: ${{ steps.bump.outputs.prerelease }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Configure git identity
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Bump version, update changelog and tag
+        id: bump
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: node scripts/ci/bump-version.mjs
+      - name: Push release commit and tag
+        run: git push origin "HEAD:${{ github.ref_name }}" --follow-tags
+      - name: Extract release notes
+        run: node scripts/ci/extract-release-notes.mjs "${{ steps.bump.outputs.version }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-meta
+          retention-days: 30
+          path: |
+            release-meta.json
+            release-notes.md
+
+  build-macos:
+    name: Build macOS packages
+    needs: version
+    runs-on: macos-14
+    timeout-minutes: 45
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.version.outputs.tag }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run dist:mac
+      - name: Write macOS checksums
+        run: |
+          cd dist
+          shasum -a 256 *.dmg *.zip > SHA256SUMS-macos.txt
+          cat SHA256SUMS-macos.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-packages
+          retention-days: 30
+          path: |
+            dist/*.dmg
+            dist/*.zip
+            dist/SHA256SUMS-macos.txt
+
+  build-windows:
+    name: Build Windows package
+    needs: version
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.version.outputs.tag }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run dist:win
+      - name: Write Windows checksums
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem dist -Filter '*-win-x64.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'Missing NSIS installer' }
+          $hash = (Get-FileHash $installer.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+          "$hash  $($installer.Name)" | Out-File -Encoding utf8 dist/SHA256SUMS-windows.txt
+          Get-Content dist/SHA256SUMS-windows.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-packages
+          retention-days: 30
+          path: |
+            dist/*-win-x64.exe
+            dist/SHA256SUMS-windows.txt
+
+  release:
+    name: Publish GitHub release
+    needs:
+      - version
+      - build-macos
+      - build-windows
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Collect packages and write combined checksums
+        run: node scripts/ci/collect-assets.mjs artifacts release-assets "${{ needs.version.outputs.version }}"
+      - name: Create or update the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.version.outputs.tag }}
+          VERSION: ${{ needs.version.outputs.version }}
+          PRERELEASE: ${{ needs.version.outputs.prerelease }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" release-assets/* --clobber
+            exit 0
+          fi
+          flags=()
+          if [ "$PRERELEASE" = "true" ]; then flags+=(--prerelease); fi
+          gh release create "$TAG" \
+            --title "VCE Player $VERSION" \
+            --notes-file artifacts/release-meta/release-notes.md \
+            "${flags[@]}" \
+            release-assets/*

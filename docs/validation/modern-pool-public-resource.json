@@ -1,0 +1,42 @@
+{
+  "target": "/tmp/kp/vendor-2.9.3-full/files/entry-20.exe",
+  "resourceNameArgumentVA": "0x8e7048",
+  "resourceName": "EXAM_PUBLIC_KEY",
+  "imports": [
+    {
+      "dll": "libeay32.dll",
+      "name": "X509_get_pubkey",
+      "iat": "0xce1d00",
+      "thunk": "0x8ae504"
+    },
+    {
+      "dll": "libeay32.dll",
+      "name": "RSA_public_encrypt",
+      "iat": "0xce1d08",
+      "thunk": "0x8ae4f4"
+    },
+    {
+      "dll": "libeay32.dll",
+      "name": "RAND_bytes",
+      "iat": "0xce1d10",
+      "thunk": "0x8ae4e4"
+    },
+    {
+      "dll": "libeay32.dll",
+      "name": "EVP_PKEY_get1_RSA",
+      "iat": "0xce1d14",
+      "thunk": "0x8ae4dc"
+    }
+  ],
+  "resources": [
+    {
+      "type": 10,
+      "name": "EXAM_PUBLIC_KEY",
+      "language": 1049,
+      "rva": "0xafcb98",
+      "bytes": 2143,
+      "sha256": "1fc0adf3c2f861ae0a0cd8da952c421cbf880e052d83f947e226a872934d655e",
+      "prefix": "-----BEGIN CERTIFICATE-----\nMIIGATCCA+mgAwIBAgIBDj"
+    }
+  ]
+}

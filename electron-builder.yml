@@ -1,0 +1,43 @@
+appId: com.vceplayer.electron
+productName: VCE Player
+copyright: Copyright © 2026 VCE Player (Electron)
+directories:
+  output: dist
+  buildResources: build
+files:
+  - out/**/*
+  - package.json
+asar: true
+fileAssociations:
+  - ext: vce
+    name: Visual CertExam
+    description: Visual CertExam exam file
+    role: Viewer
+    mimeType: application/x-vce
+mac:
+  target:
+    - target: dmg
+      arch:
+        - arm64
+        - x64
+    - target: zip
+      arch:
+        - arm64
+        - x64
+  category: public.app-category.education
+  identity: null
+  artifactName: ${productName}-${version}-mac-${arch}.${ext}
+  darkModeSupport: true
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: ${productName}-${version}-win-${arch}.${ext}
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: VCE Player

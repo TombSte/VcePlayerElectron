@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-10-13T23:19:16.476Z",
+  "results": [
+    {
+      "name": "microsoft.az-104.v2021-04-04.by.zolot.100q.vce",
+      "number": "AZ-104",
+      "questions": 240,
+      "untrusted": 0,
+      "warnings": false,
+      "firstAnswer": "A"
+    },
+    {
+      "name": "microsoft.az-104.v2021-05-14.by.sophie.123q.vce",
+      "number": "AZ-104",
+      "questions": 128,
+      "untrusted": 0,
+      "warnings": false,
+      "firstAnswer": "1,8"
+    },
+    {
+      "name": "microsoft.md-100.v2021-05-14.by.wanglei.110q.vce",
+      "number": "MD-100",
+      "questions": 116,
+      "untrusted": 0,
+      "warnings": false,
+      "firstAnswer": "2,4"
+    },
+    {
+      "name": "az-900.v2021-08-01.vce",
+      "number": "AZ-900",
+      "questions": 237,
+      "untrusted": 0,
+      "warnings": false,
+      "firstAnswer": "2,3,5"
+    },
+    {
+      "name": "my.exam.v7.vce",
+      "number": "000-000",
+      "questions": 12,
+      "untrusted": 0,
+      "warnings": false,
+      "firstAnswer": "D"
+    }
+  ]
+}

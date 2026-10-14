@@ -1,0 +1,24 @@
+
+> vce-player-electron@0.1.0 test:reader
+> tsx scripts/test-reader.ts /tmp/vce_refs/sneklyudov_Converter/ExamUniverse.Converter.VCE.Tests/Files
+
+NEEDKEY az-900.v2021-08-01.vce                         Invalid hot-area count (possible key mismatch)
+NEEDKEY cisco.300-410.v2020-09-21.by.grace.36q.vce     v60 num="9.<U��+)��Y.�e" exams=1 questions=36  [empty=0, number="9.<U��+)��Y.�e", title="9.<U��+)��Y.�e"]
+NEEDKEY microsoft.98-366.v2020-09-14.by.rahid.68q.vce  v60 num="�5H? T���*˷" exams=1 questions=68  [empty=0, number="�5H? T���*˷", title="�5H? T���*˷"]
+NEEDKEY microsoft.az-104.v2020-12-31.by.zala.135q.vce  v61 num="AZ-104"     exams=5 questions=135  [empty=116]
+NEEDKEY microsoft.az-104.v2021-04-04.by.zolot.100q.vce Invalid hot-area count (possible key mismatch)
+NEEDKEY microsoft.az-104.v2021-05-14.by.sophie.123q.vce Invalid drag-and-drop count (possible key mismatch)
+NEEDKEY microsoft.az-303.v2021-04-01.by.gracie.79q.vce v61 num="AZ-303"     exams=8 questions=79  [empty=64]
+NEEDKEY microsoft.az-900.v2021-02-09.by.abdullah.124q.vce v61 num="AZ-900"     exams=1 questions=107  [empty=102]
+NEEDKEY microsoft.md-100.v2021-05-14.by.wanglei.110q.vce Invalid hot-area count (possible key mismatch)
+NEEDKEY my.exam.v1.vce                                 v61 num="AA-000"     exams=2 questions=48  [empty=30]
+NEEDKEY my.exam.v2.vce                                 v61 num="AA-000"     exams=1 questions=24  [empty=15]
+OK      my.exam.v3.vce                                 v61 num="AA-000"     exams=1 questions=1
+OK      my.exam.v4.vce                                 v61 num="000-000"    exams=1 questions=1
+NEEDKEY my.exam.v5.vce                                 v61 num="000-000"    exams=1 questions=1  [empty=1]
+NEEDKEY my.exam.v6.vce                                 v61 num="000-000"    exams=1 questions=1  [empty=1]
+NEEDKEY my.exam.v7.vce                                 Invalid hot-area count (possible key mismatch)
+OK      my.exam.v8.vce                                 v61 num="MD-100"     exams=1 questions=4
+PASS    my.exam.v9.vce                                 v62 num="AZ-104"     exams=1 questions=6
+
+pass=1 fail=0 needsKey=14 parseFail=0
