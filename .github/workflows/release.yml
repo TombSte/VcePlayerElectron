@@ -87,7 +87,9 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: npm run dist:mac
+      # electron-builder auto-enables publishing when CI builds a git tag and then
+      # demands a GH_TOKEN; the release job publishes instead.
+      - run: npm run dist:mac -- --publish never
       - name: Write macOS checksums
         run: |
           cd dist
@@ -118,7 +120,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: npm run dist:win
+      - run: npm run dist:win -- --publish never
       - name: Write Windows checksums
         shell: pwsh
         run: |

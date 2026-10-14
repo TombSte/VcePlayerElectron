@@ -69,6 +69,16 @@ Entrambi i rami ricevono commit di release che toccano `package.json`, `package-
 3. **Settings → Actions → General → Workflow permissions: Read and write** (i job `version` e `release` dichiarano comunque `permissions: contents: write`).
 4. Se la branch protection impedisce il push di `github-actions[bot]`, creare un secret `RELEASE_TOKEN` (PAT con `contents: write`) e usarlo come `token` del checkout del job `version` e come `GH_TOKEN` del job `release`.
 
+## Troubleshooting
+
+**`GitHub Personal Access Token is not set, neither programmatically, nor using env "GH_TOKEN"`**
+
+Errore di `electron-builder`, non di `@electron/get`: quando rileva CI + checkout di un tag imposta da sé `publish = onTag` e crea un `GitHubPublisher` che pretende il token. I job di build passano `--publish never` per disattivarlo: la pubblicazione è compito del job `release`. Se il messaggio compare altrove, aggiungere `--publish never` al comando `electron-builder`.
+
+**Un build è fallito dopo che il tag era già stato creato**
+
+Usare **Re-run failed jobs**: `version` non viene rieseguito e i job dipendenti riusano gli output memorizzati. Se si usa **Re-run all jobs**, la guardia di idempotenza riconosce il tag già presente su `HEAD` e riusa la versione, quindi non nasce una seconda release.
+
 ## Limiti
 
 - Build **non firmate e non notarizzate**: nessun signing/notarization in CI.
