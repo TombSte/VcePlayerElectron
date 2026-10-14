@@ -26,10 +26,10 @@ interface ActiveExam {
 }
 
 const TEXT_SIZES: Record<AppOptions['textSize'], string> = {
-  small: '13px',
-  medium: '15px',
-  large: '17px',
-  xlarge: '19px'
+  small: '12px',
+  medium: '14px',
+  large: '16px',
+  xlarge: '18px'
 }
 
 function MenuBar({
@@ -84,14 +84,39 @@ function MenuBar({
     }
   ]
 
+  const menuNames = menus.map((m) => m.name)
+
   return (
-    <div className="menubar" ref={ref}>
+    <div
+      className="menubar"
+      ref={ref}
+      onKeyDown={(event) => {
+        if (open === null) return
+        const index = menuNames.indexOf(open)
+        if (event.key === 'Escape') {
+          setOpen(null)
+          ;(event.target as HTMLElement).blur()
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault()
+          setOpen(menuNames[(index + 1) % menuNames.length])
+        } else if (event.key === 'ArrowLeft') {
+          event.preventDefault()
+          setOpen(menuNames[(index - 1 + menuNames.length) % menuNames.length])
+        }
+      }}
+    >
       <div className="brand">
         <span className="logo">VCE</span>
         <span>VCE Player</span>
       </div>
       {menus.map((menu) => (
-        <div className={`menu${open === menu.name ? ' open' : ''}`} key={menu.name}>
+        <div
+          className={`menu${open === menu.name ? ' open' : ''}`}
+          key={menu.name}
+          onMouseEnter={() => {
+            if (open) setOpen(menu.name)
+          }}
+        >
           <button onClick={() => setOpen(open === menu.name ? null : menu.name)}>{menu.name}</button>
           {open === menu.name && (
             <div className="menu-popup">
@@ -464,20 +489,6 @@ export default function App(): JSX.Element {
               </button>
             </div>
           </header>
-          <div className="stat-row">
-            <div className="stat">
-              <div className="value">{data?.examList.length ?? 0}</div>
-              <div className="label">Exam files</div>
-            </div>
-            <div className="stat">
-              <div className="value">{data?.history.length ?? 0}</div>
-              <div className="label">Attempts</div>
-            </div>
-            <div className="stat">
-              <div className="value">{data?.sessions.length ?? 0}</div>
-              <div className="label">Saved sessions</div>
-            </div>
-          </div>
           <div className="content">
             <section className="panel">
               <div className="panel-head">

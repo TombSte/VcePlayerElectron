@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AppOptions, ExamListEntry, VceFile } from '@shared/types'
 import { formatDateTime } from '../state/exam-utils'
 
@@ -15,10 +15,24 @@ function Modal({
   footer?: React.ReactNode
   small?: boolean
 }): JSX.Element {
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent): void => {
+      if (event.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className={`modal${small ? ' small' : ''}`} onClick={(e) => e.stopPropagation()}>
-        <header>{title}</header>
+        <header>
+          <span>{title}</span>
+          <span className="spacer" />
+          <button className="close" onClick={onClose} aria-label="Close" title="Close">
+            ×
+          </button>
+        </header>
         <div className="body">{children}</div>
         {footer && <footer>{footer}</footer>}
       </div>
