@@ -1,134 +1,50 @@
 # VCE Exam Player
 
-Independent VCE Player remake using Electron 33, TypeScript, React 18 and electron-vite. Parsing and AES-256-CBC record decryption run in the main process; the renderer uses an isolated preload API. No original executable, DLL or reference exam is bundled.
+**Practice for your next certification exam, at your own pace.**
 
-## Current status
+VCE Exam Player is an independent desktop app for opening and practicing with Visual CertExam (`.vce`) exam files. Build a library of your own exams, work through questions in a practice session, and review your results to see where to focus next. It is a recreation of the original player and does not include exam files or the original software.
 
-UI, exam modes, scoring, history/export and synthetic question-type tests are implemented. **Automatic reading of every `.vce` is not complete.** Protected files still need an externally supplied decrypted key pool. Successful builds and zero parse errors do not establish full format compatibility.
+![Exam library showing a selection of practice exams](docs/screenshots/main-light.png)
 
-- Latest unit suite: 50 tests; typecheck passes.
-- Legacy format 31: AZ-303 reads 246 trusted questions without a manual pool; packaged macOS arm64 smoke passes, including an interactive image.
-- Real corpus: `pass=1 fail=0 needsKey=14 parseFail=0` across 18 files (three additional files print `OK` without reference expectations).
-- Manual base64 pools read all five required protected reference files without decryption warnings.
-- macOS arm64/x64 DMG and ZIP, plus Windows x64 NSIS installer, are built.
-- Packaged macOS arm64/x64 smoke tests pass. Windows installation/launch remains **unverified on Windows**.
+## What you can do
 
-Evidence and remaining acceptance requirements: [docs/validation.md](docs/validation.md).
+- **Make practice your own:** take a full exam, choose sections or a range of questions, or revisit questions you previously got wrong. You can also shuffle questions and answers.
+- **Work through different question types:** answer multiple-choice questions and interact with activities such as placing items, ordering lists and selecting areas of an image.
+- **Stay in control:** mark questions for later, navigate between them, pause or save a session, and use training mode to show answers as you go.
+- **Learn from your results:** review answers, see your score and section results, and return to your history. Reports can be printed or saved.
+- **Make it comfortable:** choose a light, dark or high-contrast theme and adjust the text size.
 
-## Features
+### Practice and review
 
-- Persisted exam list; add/change/remove files, folder scan, `.vce` command-line and OS open handling.
-- Single/multiple choice, Case Study, Fill in the Blank, Hot Area, Point and Shoot, Drag and Drop, Select and Place, Create a Tree, Build List and Reorder, Drop and Connect. Interactive placements and ordering support mouse/keyboard. Synthetic fixtures cover reader mappings and scoring; this is not proof that every original file parses.
-- Exam modes: all questions, selected sections, a question count, a question range, previously incorrect questions. Training mode and question/choice randomization.
-- Timer/pause, Previous/Next, Mark, Reset, Show Answer, Calculator, Exhibits, Instructions, Print Item, Save Session and End Exam.
-- Question navigation/status grid; review All/Incomplete/Marked; score report, per-section results, print/PDF and text export.
-- Persisted score history and sessions; TXT/CSV/XML history exports.
-- Shared modern styling, light/dark/high-contrast themes, text sizing; Options with General/Administrative/Password tabs.
+The exam screen keeps your progress and marked questions visible while you work.
 
-Detailed parity checklist and screenshots: [docs/parity.md](docs/parity.md), [docs/screenshots](docs/screenshots).
+![Practice exam with an interactive question and question navigation](docs/screenshots/exam-light.png)
 
-## Development and validation
+When you finish, the score report gives you a starting point for reviewing your answers or trying again.
 
-Node 22+ is required for the packaged smoke script's built-in WebSocket client.
+![Example score report with options to review answers and retake the exam](docs/screenshots/report-light.png)
 
-```bash
-npm ci
-npm run dev
-npm run typecheck
-npm test
-npm run build
-npm run smoke:parity
-npm run smoke:training
-npm run test:reader -- /path/to/reference/Files
-```
+[See more screenshots](docs/screenshots/README.md)
 
-`test:reader` now exits nonzero for **any** `NEEDKEY`, failure or parse failure. To examine partial-reader results without treating missing keys as a successful acceptance run:
+## Get started
 
-```bash
-npm run test:reader -- /path/to/reference/Files --allow-needs-key
-```
+1. Download a macOS or Windows package from the [Releases page](https://github.com/TombSte/VcePlayerElectron/releases). Choose the macOS package for your Mac's processor (Apple silicon or Intel), or the Windows x64 installer.
+2. On macOS, open the DMG and drag **VCE Player** into Applications. On Windows, run the installer.
+3. Open the app, select **Add Exam File**, and choose a `.vce` file you are entitled to use.
+4. Select the exam, choose **Start Exam**, and pick how you want to practice.
 
-No reference files or keys are included. Use files and decrypted pools you are entitled to access.
+The current builds are unsigned, and macOS builds are not notarized. Windows installation and launch have not yet been verified on a Windows machine. See the [installation and build notes](docs/technical.md#build-and-install) for details.
 
-Verify a local format-31 specimen without printing its question contents:
+## File compatibility
 
-```bash
-npx tsx scripts/verify-legacy.ts /path/to/AZ-303.vce /tmp/legacy-report.json
-```
+**The app cannot yet automatically open every `.vce` file.** Some protected files require an externally supplied decrypted key pool; this is separate from a file-opening password. Other files or format variants may also be unsupported or only partially readable. No exam files or keys are included.
 
-## Build and install
+If you have a decrypted key pool for a protected file, use **File → Open with Decrypt Key…**. For the current evidence and limitations, see [validation](docs/validation.md) and the [technical guide](docs/technical.md#vce-format-and-external-keys).
 
-```bash
-npm run dist       # on macOS: macOS arm64/x64 DMG/ZIP + Windows x64 NSIS
-npm run dist:mac   # macOS only, on macOS
-npm run dist:win   # Windows x64 NSIS
-```
+## For developers
 
-Artifacts are written to `dist/`; SHA-256 values for the verified build are recorded in [docs/validation/SHA256SUMS](docs/validation/SHA256SUMS). Rebuilds may produce different hashes.
+The app is built with Electron, TypeScript and React. The [technical guide](docs/technical.md) covers development, tests, packaging, file formats, release automation and remaining work. Further details are available in the [feature checklist](docs/parity.md), [validation notes](docs/validation.md) and [release guide](docs/release.md).
 
-- **macOS:** open the matching architecture DMG, drag `VCE Player.app` into Applications, then launch. ZIP builds can be extracted and the app copied to Applications. Builds are unsigned and not notarized; distribution/Gatekeeper approval has not been verified. Only approve a build whose origin and hash you trust.
-- **Windows:** run `VCE Player-0.1.0-win-x64.exe`. NSIS supports per-user installation, destination selection and shortcuts. Installer/executable are unsigned; Windows runtime and `.vce` association acceptance still require a Windows machine.
+## License
 
-Build configuration registers `.vce` associations on both platforms. An explicit `--user-data-dir=/absolute/path` selects an isolated profile without changing normal user data.
-
-### Packaged-app smoke test
-
-This launches the **actual packaged executable**, not a mocked Electron shell. It exercises preload/IPC, command-line opening, reader output, Options, Exam Mode, examination controls, keyboard marking and session persistence. It uses and removes a temporary profile and reports renderer errors. CDP is bound to loopback only during the test; normal app launches do not enable remote debugging.
-
-```bash
-npm run smoke:packaged -- \
-  "dist/mac-arm64/VCE Player.app/Contents/MacOS/VCE Player" \
-  /path/to/readable.vce \
-  docs/validation/local-packaged-smoke.json
-```
-
-On Windows, run the same script against the **installed** `VCE Player.exe` with a readable real `.vce`. It needs Node 22+ and does not install NSIS itself. See [docs/validation.md](docs/validation.md) for recorded macOS results and the outstanding Windows checklist.
-
-## `.vce` format and external keys
-
-The container starts with `85 A8` and version bytes (`major*10+minor`). Implemented layouts: **31 and 60–62**. Other versions receive an explicit unsupported-format error.
-
-Format 31 uses a legacy per-byte cipher, separate properties/style streams and six-byte question prefixes, not AES or external key pools. The supplied AZ-303 specimen now opens automatically: 246 questions, 0 untrusted. Both TRichView stream versions observed in it and UTF-16 text are handled. See [legacy evidence](docs/format31-re.md); this is not proof that every legacy variant works.
-
-For formats 60–62, the header carries a 1024-byte `keys` pool and a 2304-byte `encryptKeys` blob. Array lengths consist of an ignored marker and four bytes XORed with `[0,1,2,7]`.
-
-Encrypted records contain a selector, a 32-bit `globalOffset` for version >= 61, and AES-256-CBC ciphertext without padding. Key/IV are pool slices `[offset:offset+32]` / `[offset+32:offset+48]`. Selectors below `0x80` use `keys`; protected selectors need a decrypted pool. Question bodies use TRichView-style rich text converted to HTML.
-
-The on-disk `encryptKeys` blob is **not generally a usable decrypted pool**. The current reader tries it when no external pool is provided; results can be partial, invalid or require a key. Older versions can also have unreadable protected metadata: do not assume every format-60 file is fully readable.
-
-For a protected file, select **File → Open with Decrypt Key…** and provide the already decrypted pool encoded as base64. Base64 is an encoding, not a decryption algorithm. This pool is distinct from a file-opening password.
-
-Automatic pool recovery is unresolved. Static analysis identifies a key-request/cache path in the original player; it does **not** establish a local RSA derivation algorithm or an embedded production private key. `init_read_key` is used in activation/licensing and has not been shown to derive file pools. No request to the original key server is made by this app.
-
-Evidence, hypotheses and remaining reverse-engineering work: [docs/keypool-re.md](docs/keypool-re.md).
-
-## Layout
-
-```text
-src/main/                 window, IPC, persistence, native TypeScript VCE reader
-src/preload/              isolated window.api bridge
-src/shared/               domain types and rich-text conversion
-src/renderer/             React app, questions, exam UI, dialogs, scoring/export
-scripts/                  reader validation, parity and packaged smoke tests
- tests/                   synthetic reader/scoring/modes/export tests
- docs/                    parity, screenshots, reverse-engineering and validation evidence
-```
-
-## Releases
-
-Pushes to `main` or `prod` trigger [`.github/workflows/release.yml`](.github/workflows/release.yml): typecheck and unit tests run first, and only on success a version is created from Conventional Commits (`main` → prerelease `X.Y.Z-rc.N`, `prod` → stable `X.Y.Z`), then macOS (arm64 + x64 DMG/ZIP) and Windows (NSIS x64) packages are built on GitHub and attached to a GitHub Release with `SHA256SUMS`.
-
-```bash
-npm run release:version   # convention: BRANCH=main|prod; DRY_RUN=1 for a local preview
-npm run release:notes     # extracts the CHANGELOG section into release-notes.md
-```
-
-Builds are unsigned and not notarized; packaged `.vce` smoke validation stays manual. Details, prerequisites and recovery steps: [docs/release.md](docs/release.md).
-
-## Remaining work
-
-1. Establish and implement automatic per-file key-pool recovery; validate the five required files and the entire corpus without external pools.
-2. Install/run the NSIS build on Windows and open a real `.vce`; verify shell association behavior on both platforms.
-3. Re-run packaged validation and update artifact hashes after any application change.
-
-Signing/notarization and localization are not implemented.
+[MIT](LICENSE)
