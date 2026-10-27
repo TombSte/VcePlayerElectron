@@ -1,6 +1,6 @@
 {
   "name": "vce-player-electron",
-  "version": "0.1.1-rc.2",
+  "version": "0.2.0-rc.0",
   "description": "VCE Exam Player — Electron + TypeScript + React recreation of VCE Player (Visual CertExam)",
   "main": "./out/main/index.js",
   "author": "",
