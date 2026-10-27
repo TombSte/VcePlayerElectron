@@ -81,6 +81,6 @@ Usare **Re-run failed jobs**: `version` non viene rieseguito e i job dipendenti 
 
 ## Limiti
 
-- Build **non firmate e non notarizzate**: nessun signing/notarization in CI.
+- Build macOS con firma **ad hoc**, senza Developer ID né notarizzazione; Gatekeeper può richiedere l'approvazione manuale. Build Windows non firmate.
 - Il workflow non esegue lo smoke pacchettizzato con file `.vce` reali: resta manuale ([`windows-packaged-smoke.yml`](../.github/workflows/windows-packaged-smoke.yml), `npm run smoke:packaged`).
 - `docs/validation/*` non viene aggiornato automaticamente.

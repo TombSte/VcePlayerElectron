@@ -33,7 +33,7 @@ When you finish, the score report gives you a starting point for reviewing your 
 3. Open the app, select **Add Exam File**, and choose a `.vce` file you are entitled to use.
 4. Select the exam, choose **Start Exam**, and pick how you want to practice.
 
-The current builds are unsigned, and macOS builds are not notarized. Windows installation and launch have not yet been verified on a Windows machine. See the [installation and build notes](docs/technical.md#build-and-install) for details.
+macOS builds use an ad hoc signature and are not notarized. After trying to open the app, use System Settings → Privacy & Security → Open Anyway if macOS blocks it and you trust the download. Windows builds are unsigned; installation and launch have not yet been verified on a Windows machine. See the [installation and build notes](docs/technical.md#build-and-install) for details.
 
 ## File compatibility
 

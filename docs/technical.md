@@ -68,7 +68,7 @@ npm run dist:win   # Windows x64 NSIS
 
 Artifacts are written to `dist/`; SHA-256 values for the verified build are recorded in [docs/validation/SHA256SUMS](validation/SHA256SUMS). Rebuilds may produce different hashes.
 
-- **macOS:** open the matching architecture DMG, drag `VCE Player.app` into Applications, then launch. ZIP builds can be extracted and the app copied to Applications. Builds are unsigned and not notarized; distribution/Gatekeeper approval has not been verified. Only approve a build whose origin and hash you trust.
+- **macOS:** open the matching architecture DMG, drag `VCE Player.app` into Applications, then launch. ZIP builds can be extracted and the app copied to Applications. Builds are ad hoc signed but not notarized. If blocked, after trying to open the app, go to System Settings → Privacy & Security → Open Anyway. Only approve a build whose origin and hash you trust. Gatekeeper behavior must be verified on a clean Mac.
 - **Windows:** run `VCE Player-0.1.0-win-x64.exe`. NSIS supports per-user installation, destination selection and shortcuts. Installer/executable are unsigned; Windows runtime and `.vce` association acceptance still require a Windows machine.
 
 Build configuration registers `.vce` associations on both platforms. An explicit `--user-data-dir=/absolute/path` selects an isolated profile without changing normal user data.
@@ -125,7 +125,7 @@ npm run release:version   # convention: BRANCH=main|prod; DRY_RUN=1 for a local 
 npm run release:notes     # extracts the CHANGELOG section into release-notes.md
 ```
 
-Builds are unsigned and not notarized; packaged `.vce` smoke validation stays manual. Details, prerequisites and recovery steps: [docs/release.md](release.md).
+macOS builds are ad hoc signed and not notarized; Windows builds are unsigned. Packaged `.vce` smoke validation stays manual. Details, prerequisites and recovery steps: [docs/release.md](release.md).
 
 ## Remaining work
 
@@ -133,4 +133,4 @@ Builds are unsigned and not notarized; packaged `.vce` smoke validation stays ma
 2. Install/run the NSIS build on Windows and open a real `.vce`; verify shell association behavior on both platforms.
 3. Re-run packaged validation and update artifact hashes after any application change.
 
-Signing/notarization and localization are not implemented.
+Developer ID signing, notarization and localization are not implemented.

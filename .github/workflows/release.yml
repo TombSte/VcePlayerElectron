@@ -90,6 +90,10 @@ jobs:
       # electron-builder auto-enables publishing when CI builds a git tag and then
       # demands a GH_TOKEN; the release job publishes instead.
       - run: npm run dist:mac -- --publish never
+      - name: Verify macOS app signatures
+        run: |
+          codesign --verify --deep --strict --verbose=2 'dist/mac-arm64/VCE Player.app'
+          codesign --verify --deep --strict --verbose=2 'dist/mac/VCE Player.app'
       - name: Write macOS checksums
         run: |
           cd dist
